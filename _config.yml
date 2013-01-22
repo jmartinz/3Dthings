@@ -15,8 +15,8 @@ githubiverse:
     ## Github project parameters.
     github:
         base: https://github.com/
-        user: garyhodgson
-        repository: githubiverse-tst
+        user: jmartinz
+        repository: 3Dthings
         branch: master
 
     ## The names of directories where any images, source and stl files associated with the project can be found.
