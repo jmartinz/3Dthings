@@ -95,9 +95,10 @@ separacion=(altura_asa-altura_ag*2)/3;
 translate([0,0,separacion])
 agarradera(diam_ext, diam_int , altura_ag, ancho_ag, diam_tubo );
 
-translate([0,0,separacion*2+altura_ag])
+// Una agarradera es suficiente. La de más abajo no es necesaria
+/*translate([0,0,separacion*2+altura_ag])
 agarradera(diam_ext, diam_int , altura_ag, ancho_ag, diam_tubo );
-
+*/
 }
 
 module soporte_vaso(){
