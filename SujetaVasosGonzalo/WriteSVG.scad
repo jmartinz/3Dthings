@@ -29,7 +29,7 @@
 	center=false;
 	h = 12;			 //mm letter height
 	t = 2; 			//mm letter thickness
-	space =1; 			//extra space between characters in (character widths)
+	space =1.5; 			//extra space between characters in (character widths)
 	rotate=0;			// text rotation (clockwise)
 	font = "Letters.dxf";	//default for aditional fonts
 

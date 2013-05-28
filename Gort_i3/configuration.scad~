@@ -24,4 +24,4 @@ belt_tooth_ratio = 0.5;
 hotend_mount = 1;
 
 hotend_groovemount_depth = 5;
-hotend_groovemount_diameter = 11.05;
+hotend_groovemount_diameter = 6;
