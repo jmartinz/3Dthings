@@ -757,8 +757,7 @@ module peek_reprapsource_holes ()
 module arcol_mount_holes() 
 { 
 	hole_axis_rotation=42.5; 
-	//hole_separation=30; JMMP
-	hole_separation=24;
+	hole_separation=30;
 	hole_slot_height=4;
 	for(mount=[-1,1])
 	translate([hole_separation/2*mount,-7,0]) 

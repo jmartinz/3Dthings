@@ -34,12 +34,12 @@ use <WriteSVG.scad>
 /* grosor = 20;
  diam_ext=80;
  diam_int = 63.3; 
- texto = "Gonzalo";
+ texto = "Claudia";
 diam_tubo = 60;
 */
 
 // Aro
-module aro(grosor_aro=20,  diam_ext=80, diam_int = 63.3, texto = "Gonzalo")
+module aro(grosor_aro=20,  diam_ext=80, diam_int = 63.3, texto = "Claudia")
 {
  // Exterior Aro
  difference(){
@@ -64,7 +64,7 @@ difference(){
  translate([diam_int/2,-20,0])
  cube([30,40,altura]);
 
-translate([(diam_ext+diam_tubo)/2+5,0,altura/2])
+translate([(diam_ext+diam_tubo)/2+6,0,altura/2])
   cylinder(r=diam_tubo/2, h=altura*2,$fn=100,center=true);
 }
 
@@ -75,7 +75,7 @@ cylinder(r=60/2,h=42,  $fn=100);
 }
 
 //Cuerpdel soporte del vaso
-module cuerpo_sv(grosor_aro=20,  diam_ext=80, diam_int = 63, texto = "Gonzalo",altura=40, diam_tubo = 60.34){
+module cuerpo_sv(grosor_aro=20,  diam_ext=80, diam_int = 68, texto = "Claudia",altura=40, diam_tubo = 60.34){
  aro(grosor_aro,  diam_ext, diam_int, texto);
  base_asa(altura, diam_int, diam_ext, diam_tubo);
 }
@@ -90,9 +90,9 @@ difference(){
 }
 }
 
-module agarraderas( altura_asa=40, diam_ext=80, diam_int = 63.3, altura_ag=12, ancho_ag=2, diam_tubo = 60){
+module agarraderas( altura_asa=40, diam_ext=80, diam_int = 63.3, altura_ag=14, ancho_ag=2, diam_tubo = 60){
 separacion=(altura_asa-altura_ag*2)/3;
-translate([0,0,separacion])
+translate([0,0,separacion*2])
 agarradera(diam_ext, diam_int , altura_ag, ancho_ag, diam_tubo );
 
 // Una agarradera es suficiente. La de más abajo no es necesaria
