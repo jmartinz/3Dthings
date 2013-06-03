@@ -1,4 +1,4 @@
 3Dthings
 ========
 
-Repositorio con objetos 3D
+Repositorio con objetos 3D y demaás
