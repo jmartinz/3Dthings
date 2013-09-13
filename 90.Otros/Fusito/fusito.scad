@@ -21,7 +21,11 @@ translate([0,0,-5])
 cylinder(r1=0.5/2, r2=6/2,h=5, $fn=64);
 
 translate([0,0,3])
+difference(){
 cylinder(r=10/2, h=5, $fn=64);
+translate([-20,0,2.5]) rotate([0,90,0]) cylinder(r=2/3, h=120, $fn=64); //agujero para los brazos
+}
+
 
 translate([-5,3,3])
 difference(){
@@ -38,7 +42,7 @@ cylinder(r=14/2, h=7, $fn=64);
 translate([0,0,20]) 
 difference(){
 cylinder(r=20/2, h=1, $fn=64);
-   writecylinder("Cole",[0,0,0],20/2,1.2,face="top" );
+   writecylinder("Clone Wars",[0,0,0],20/2,1.2,face="top" );
 }
 translate([-1,0,23]) 
 linear_extrude(height = 5, center = true, convexity = 10, twist = 180, $fn = 100)
