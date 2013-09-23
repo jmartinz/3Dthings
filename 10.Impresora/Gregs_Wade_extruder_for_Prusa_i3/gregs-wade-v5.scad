@@ -389,8 +389,8 @@ echo("bhmh", mounting_holes)
 			cylinder(r=m3_nut_diameter/2+0.4, h=20, center=true,$fn=20);
 		}
 		
-		translate([5,0,0]) { //-22
-			translate([0,0,layer_thickness+24]) 
+		translate([1,0,0]) { //-22
+			translate([-1,0,layer_thickness+24]) 
 			  cylinder(r=m3_diameter/2, h=wade_block_depth+0.2+base_extra_depth, center=true,$fn=20);
 			cylinder(r=m3_nut_diameter/2+0.4, h=20, center=true,$fn=20);
 		}
@@ -757,7 +757,6 @@ module peek_reprapsource_holes ()
 module arcol_mount_holes() 
 { 
 	hole_axis_rotation=42.5; 
-	//hole_separation=30; JMMP
 	hole_separation=24;
 	hole_slot_height=4;
 	for(mount=[-1,1])
@@ -783,7 +782,6 @@ module mendel_parts_v6_holes (insulator_d=12.7)
 	extruder_recess_d=insulator_d+0.7;
 	extruder_recess_h=10; 
 	hole_axis_rotation=42.5; 
-	//hole_separation=30; JMMP
 	hole_separation=24;
 	hole_slot_height=5;
 	
