@@ -25,7 +25,8 @@ malcolm_extrusion_mount=1024;	//broken
 
 //default_extruder_mount=malcolm_extrusion_mount;
 //default_extruder_mount=groovemount;
-default_extruder_mount=256;
+default_extruder_mount=512;
+base_extra_depth=5;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -161,7 +162,7 @@ block_bevel_r=6;
 base_thickness=10;
 base_length=70+2-6;
 base_leadout=25+2+1-6;
-base_extra_depth=0;
+//base_extra_depth=0;
 
 nema17_hole_spacing=1.2*25.4;//31; 
 nema17_width=1.7*25.4;
@@ -389,8 +390,8 @@ echo("bhmh", mounting_holes)
 			cylinder(r=m3_nut_diameter/2+0.4, h=20, center=true,$fn=20);
 		}
 		
-		translate([1,0,0]) { //-22
-			translate([-1,0,layer_thickness+24]) 
+		translate([5,0,0]) { //-22
+			translate([0,0,layer_thickness+24]) 
 			  cylinder(r=m3_diameter/2, h=wade_block_depth+0.2+base_extra_depth, center=true,$fn=20);
 			cylinder(r=m3_nut_diameter/2+0.4, h=20, center=true,$fn=20);
 		}
@@ -441,7 +442,7 @@ echo("bhmh", mounting_holes)
 			translate([-filament_feed_hole_offset,0,wade_block_depth/2])
 			rotate([90,0,0])
 			rotate(360/16)
-			cylinder(r=filament_feed_hole_d/2,h=wade_block_depth*3+elevation,center=true,$fn=8);	
+			cylinder(r=filament_feed_hole_d/2,h=wade_block_depth*3+elevation+50,center=true,$fn=8);	
 
 			//Widened opening for hobbed bolt access.
 			translate([2,wade_block_height/2+2,wade_block_depth/2+0.2])
@@ -591,7 +592,7 @@ module wadeidler()
 		cube([7,guide_length+2,filament_diameter+0.5],center=true);
 		translate([-7/2,0,0])
 		rotate([90,0,0])
-		cylinder(h=guide_length+4,r=(filament_diameter+0.5)/2,center=true,$fn=16);
+	    cylinder(h=guide_length+4,r=(filament_diameter+0.5)/2,center=true,$fn=16);
 		}
 
 		//Back of idler.
@@ -756,25 +757,29 @@ module peek_reprapsource_holes ()
 //arcol_mount_holes();
 module arcol_mount_holes() 
 { 
-	hole_axis_rotation=42.5; 
-	hole_separation=24;
-	hole_slot_height=4;
-	for(mount=[-1,1])
-	translate([hole_separation/2*mount,-7,0]) 
-	{
-		translate([0,0,-1])
-		cylinder(r=m4_diameter/2,h=base_thickness+2,$fn=8);
-		
-		translate([0,0,base_thickness/2])
-		//rotate(hole_axis_rotation)
-		{
-			cylinder(r=m4_nut_diameter/2,h=base_thickness/2+hole_slot_height,$fn=6);
-			translate([0,-m4_nut_diameter,hole_slot_height/2+base_thickness/2]) 
-			cube([m4_nut_diameter,m4_nut_diameter*2,hole_slot_height],
-			center=true);
-		}
-	}
+//	hole_axis_rotation=42.5; 
+//	hole_separation=30;
+//	hole_slot_height=4;
+//	for(mount=[-1,1])
+//	translate([hole_separation/2*mount,-7,0]) 
+//	{
+//		translate([0,0,-1])
+//		cylinder(r=m4_diameter/2,h=base_thickness+2,$fn=8);
+//		
+//		translate([0,0,base_thickness/2])
+//		//rotate(hole_axis_rotation)
+//		{
+//			cylinder(r=m4_nut_diameter/2,h=base_thickness/2+hole_slot_height,$fn=6);
+//			translate([0,-m4_nut_diameter,hole_slot_height/2+base_thickness/2]) 
+//			cube([m4_nut_diameter,m4_nut_diameter*2,hole_slot_height],
+//			center=true);
+//		}
+//	}
 }
+
+module budas_mount_holes() 
+{ }
+	
 
 //mendel_parts_v6_holes ();
 module mendel_parts_v6_holes (insulator_d=12.7) 
@@ -782,7 +787,7 @@ module mendel_parts_v6_holes (insulator_d=12.7)
 	extruder_recess_d=insulator_d+0.7;
 	extruder_recess_h=10; 
 	hole_axis_rotation=42.5; 
-	hole_separation=24;
+	hole_separation=30;
 	hole_slot_height=5;
 	
 	// Recess in base
