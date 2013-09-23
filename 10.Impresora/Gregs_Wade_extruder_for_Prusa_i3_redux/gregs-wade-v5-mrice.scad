@@ -56,6 +56,7 @@ default_mounting_holes=mounting_holes_symmetrical;
 wade(hotend_mount=default_extruder_mount,	mounting_holes=default_mounting_holes);
 //translate([-35,10,0]) bearing_washer();
 //translate([-20,10,15.25]) rotate([0,-90,0]) wadeidler(); 
+//color("red") fulcrum_support();
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -987,7 +988,7 @@ module fulcrum_support() {
 				difference()
 				{
 				cube([idler_hinge_r+3,	idler_hinge_r*2+4,	wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
-				translate([idler_hinge_r+2,(idler_hinge_r*2+4)/2,layer_thickness*3])
+				translate([idler_hinge_r+2,(idler_hinge_r*2+4)/2,0])
 				cylinder(r=idler_hinge_r+1,h=10,$fn=50);
 				}
 				
@@ -1002,6 +1003,36 @@ module fulcrum_support() {
 				cube([idler_hinge_r+3+15,
 					idler_hinge_r*2+4,
 					layer_thickness]);
+
+
+				rotate(-15)
+				translate([3,-idler_hinge_r-2,-wade_block_depth/2])
+				cube([layer_thickness,	idler_hinge_r*2+4,	wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
+
+/*
+				rotate(-55) translate([-(idler_hinge_r),-idler_hinge_r+9,
+					-wade_block_depth/2])
+				cube([idler_hinge_r+3+13,
+					layer_thickness,
+					wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
+
+				rotate(30) translate([-(idler_hinge_r),-idler_hinge_r,
+					-wade_block_depth/2])
+				cube([idler_hinge_r+3+11,
+					layer_thickness,
+					wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
+*/
+				rotate(-15) translate([-(idler_hinge_r-9),-idler_hinge_r-2,
+					-wade_block_depth/2])
+				cube([idler_hinge_r+3,
+					layer_thickness,
+					wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
+
+				rotate(-15) translate([-(idler_hinge_r-9),idler_hinge_r+1.75,
+					-wade_block_depth/2])
+				cube([idler_hinge_r+3,
+					layer_thickness,
+					wade_block_depth/2-	idler_short_side/2+idler_hinge_width+0.25+layer_thickness]);
 
            }
 }
