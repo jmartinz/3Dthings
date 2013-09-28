@@ -48,8 +48,8 @@ difference() {
 	translate([34.5,94,3]) rotate(a=[0,0,120]) cube([3.5,6,2], center=true); //yn part of captive nut
 }
 }
-PSC12V();
-color("red")bracket();
+//PSC12V();
+//color("red")bracket();
 //cable securing block bracket
 module bracket(){
 difference() {

@@ -64,10 +64,10 @@ y_shift=thisFont[0][1];
 	}
 }
 
-translate([0, 20,0]) penword("  Belen", 1.5, 0.81, 80);
-translate([0, 40,0])penword("  Javi", 1.5, 0.81, 80);
-translate([0, 60,0])penword("Gonzalo", 1.5, 0.81, 80);
-penword(" Gonzalo", 1.5, 0.81, 80);
-translate([0, -20,0]) penword(" Pablo", 1.5, 0.81, 80);
-translate([0, -40,0])penword("  Olga", 1.5, 0.81, 80);
-translate([0, -60,0])penword(" Oscar", 1.5, 0.81, 80);
+//translate([0, 20,0]) penword("  Belen", 1.5, 0.81, 80);
+//translate([0, 40,0])penword("  Javi", 1.5, 0.81, 80);
+//translate([0, 60,0])penword("Gonzalo", 1.5, 0.81, 80);
+//penword(" Gonzalo", 1.5, 0.81, 80);
+ penword("  Pablo @", 1.82, 0.91, 132);
+//translate([0, -40,0])penword("  Olga", 1.5, 0.81, 80);
+//translate([0, -60,0])penword(" Oscar", 1.5, 0.81, 80);
