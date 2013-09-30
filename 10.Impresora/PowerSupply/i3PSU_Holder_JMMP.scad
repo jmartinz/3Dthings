@@ -120,7 +120,7 @@ difference() {
 
 
 
-powerCover();
+translate([0,0,148])rotate([-90,0,0])powerCover();
 //bracket();
 /*color("GhostWhite") i3frame();
 translate([i3_SUPPORT_SPACE + i3_FRAME_THICKNESS + (PSU_HEIGHT /  2),PSU_WIDTH / 2,0]) rotate([90,180,90]) {
