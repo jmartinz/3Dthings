@@ -2,6 +2,7 @@ include <i3 support.scad>
 include <frame.scad>
 include <powerSocket.scad>
 include <Power_Supply_Cover_12v_with_cord_and_switch_.scad>
+include <xt60_JMMP.scad>
 
 
 
@@ -69,8 +70,8 @@ module powerCover() {
 	//soporte 
 	translate([-PSU_WIDTH/2 -3.5, PC_DEPTH*3+7.5, PSU_HEIGHT / -2 +4]) cube([i3_FRAME_THICKNESS+1,PC_DEPTH,8], center=true);
 	//xt60 mounts
-	translate([-PSU_WIDTH/2 +10,PC_DEPTH/2*6+15,PSU_HEIGHT / -2 -10])rotate([-90,0,0])xt60();
-	translate([-PSU_WIDTH/2 +40,PC_DEPTH/2*6+15,PSU_HEIGHT / -2 -10])rotate([-90,0,0])xt60();
+	translate([-PSU_WIDTH/2 +10,PC_DEPTH/2*6+12.5,PSU_HEIGHT / -2 +16])rotate([-90,0,0])xt60();
+	translate([-PSU_WIDTH/2 +40,PC_DEPTH/2*6+12.5,PSU_HEIGHT / -2 +16])rotate([-90,0,0])xt60();
 }
 
 
@@ -78,13 +79,13 @@ module innerArea() {
 	cube([PSU_WIDTH - (PC_THICKNESS * 3), PSU_INSET + PC_DEPTH - (PC_THICKNESS * 2),PSU_HEIGHT - (PC_THICKNESS * 2)], center=true);
 }
 
-module xt60(){
+/*module xt60(){
 	difference(){
 		rotate([0,0,-90])import("xt60mount.stl");
 		cube([60,25,80],center=true);
 	}
 
-}
+}*/
 
 module xt60Hole(){
 
