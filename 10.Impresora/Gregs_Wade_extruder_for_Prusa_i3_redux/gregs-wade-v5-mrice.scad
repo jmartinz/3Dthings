@@ -486,11 +486,11 @@ module motor_mount()
     // - mrice
     // Add a OSH logo in the space under the motor mount.
     // -
-/*  //jmmp SIMPLICITY TAKE OUT LOGO  
+  //jmmp SIMPLICITY TAKE OUT LOGO  
 	translate([44,24,0])
         linear_extrude(height=motor_mount_thickness/2)
            oshw_logo_2d(24);
-*/
+
 }
 
 module motor_mount_holes()
