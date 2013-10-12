@@ -13,12 +13,16 @@ $fn=6;
 		union(){
 			translate(v=[-5.5,30,30]) rotate(a=[0,-90,0]) rotate(a=[0,0,90]) cylinder(h = 17, r=16.5, $fn=6);
 			translate(v=[-5.5-10+1.5,13,30]) cube(size = [8,39-6,26], center = true);
+
+
 		}
 		translate(v=[-30,30,0])cube([30,30,60]);
 		translate(v=[-14,25,30.25]) rotate(a=[0,-90,0]) X_end_I_B_holes();
 		translate(v=[-5.5-10+1.5,13,30]) cube(size = [11,20-6,18], center = true);
-		translate(v=[-5.5-10+1.5,3.3,30])rotate(a=[90,0,0]) boltHole(3, length = 100);
+		translate(v=[-5.5-10+1.5,3.3,30])rotate(a=[90,0,0]) boltHole(3, length = 100);//3.3
 	}
+	translate(v=[-14,8,38])rotate(a=[-52,0,0])cube(size = [8,5,10], center = true);
+	translate(v=[-14,8,22])rotate(a=[52,0,0])cube(size = [8,5,10], center = true);
 }
 
 
@@ -33,3 +37,5 @@ module X_end_I_B_holes(){
 
 translate(v=[-5.5-10+1.5,13,30])rotate(a=[-90,0,0])x_end_idler_jmmp_b();
 
+
+//x_end_idler_jmmp_b();
