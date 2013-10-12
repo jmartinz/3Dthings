@@ -8,7 +8,7 @@
 
 
 // *** Configuration variables ***
-wheel_d = 14;    // Outer Diameter of the thumb wheel
+wheel_d = 20;    // Outer Diameter of the thumb wheel
 wheel_h = 10;     // Height of the thumb wheel
 hole_d = 3.2;    // Diameter of center hole
 hex_sz = 6.4;      // Size of the hex (nut trap)
@@ -53,4 +53,4 @@ difference() {
 }
 }
 
-
+translate([0,0,wheel_h])rotate([180,0,0])twX();
