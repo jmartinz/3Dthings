@@ -11,7 +11,7 @@ module x_end_idler_jmmp_b(){
 $fn=6;
 	difference(){
 		union(){
-			translate(v=[-5.5,30,30]) rotate(a=[0,-90,0]) rotate(a=[0,0,90]) cylinder(h = 17, r=16.5, $fn=6);
+			translate(v=[-5.5,30,30]) rotate(a=[0,-90,0]) rotate(a=[0,0,90]) cylinder(h = 17, r=17.5, $fn=6);
 			translate(v=[-5.5-10+1.5,13,30]) cube(size = [8,39-6,26], center = true);
 
 
