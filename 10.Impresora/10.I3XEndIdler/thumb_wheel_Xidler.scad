@@ -52,5 +52,6 @@ difference() {
 
 }
 }
+translate([0,0,wheel_h])rotate([180,0,0])twX();
 
 
