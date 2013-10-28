@@ -1,1 +1,1 @@
-import("castilloNogales.stl");
+import("CastillNogales_directo_ext_rev.stl");
