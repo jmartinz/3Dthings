@@ -1,4 +1,3 @@
-
 radio = 4.2/2;
 ancho=sqrt(2*radio*radio);
 rTH=17; //sqrt(2*pow(2,12.3))/2;
@@ -120,7 +119,13 @@ module agujerosMuralla(){
 	}
 }
 module tierra(){
-	translate([12.3/2,12.3/2,-3])cylinder(h = 3, r1 = 30, r2= rTH, center = false, $fn=20);
+	difference(){
+		translate([12.3,0,-1.5])rotate([0,0,-90])import("castilloNogales.stl");
+	translate([70+15,0,0])cube(size=[140,140,140],center=true);
+	translate([-70-15,0,0])cube(size=[140,140,140],center=true);
+	translate([0,70+15,0])cube(size=[140,140,140],center=true);
+	translate([0,-70-15,0])cube(size=[140,140,140],center=true);
+	}
 	
 }
 
@@ -144,8 +149,9 @@ module base(){
 	}
 }
 
-castillo();
-base();//tierra();
+translate([-12.3/2,-12.3/2,0])castillo();
+//base();
+tierra();
 
 //cubo();
 //muralla();
