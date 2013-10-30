@@ -16,38 +16,38 @@ module torre_homenaje(){
 
 module cubo(){
 	difference(){
-		cylinder(h = 8.30, r = radio, center = false, $fn=20);
+		cylinder(h = 2+8.30, r = radio, center = false, $fn=20);
 		for ( i = [0 : 7] )
 		{
-			rotate([0,0,i*45])translate([0,0,7.8])cube(size=[.5,radio*6,1],center=true);
+			rotate([0,0,i*45])translate([0,0,7.8+2])cube(size=[.5,radio*6,1],center=true);
 		}
-		translate([0,0,7.3])cylinder(h = 8.30, r = radio/2, center = false, $fn=20);
+		translate([0,0,7.3+2])cylinder(h = 8.30, r = radio/2, center = false, $fn=20);
 	}
 }
 
 module muralla(){
 	difference(){
-		cube(size=[12.3+dCubo*2,12.3+dCubo*2,6]);
+		cube(size=[12.3+dCubo*2,12.3+dCubo*2,6+2]);
 		translate([ancho/2,ancho/2,-50])cube(size=[12.3+dCubo*2-ancho,12.3+dCubo*2-ancho,100]);
-		translate([ancho/2-0.75,ancho/2-0.75,4])cube(size=[12.3+dCubo*2-ancho+1.5,12.3+dCubo*2-ancho+1.5,100]);
-		translate([12.3+dCubo*2-ancho-3,-ancho/2,2])
+		translate([ancho/2-0.75,ancho/2-0.75,4+2])cube(size=[12.3+dCubo*2-ancho+1.5,12.3+dCubo*2-ancho+1.5,100]);
+		translate([12.3+dCubo*2-ancho-3,-ancho/2,2+2])
 			union(){
 				cube(size=[1.5,5,1.5]);
 				translate([1.5/2,5,1.5])rotate([90,0,0])cylinder(h=5,r=1.5/2,$fn=20);
 			}	
 
-		agujerosMuralla();
+		translate([0,0,2])agujerosMuralla();
 	}
-	translate([12.3+dCubo*2-ancho-3,-4.3,-0.2])rotate([25,0,0])cube(size=[1.5,4.8,0.2]);
+	translate([12.3+dCubo*2-ancho-3,-4.3,-0.2+2])rotate([25,0,0])cube(size=[1.5,4.8,0.2]);
 }
 
 module castillo(){
 	torre_homenaje();
-	translate([-dCubo,-dCubo,0]) cubo();
-	translate([-dCubo,12.3 + dCubo,0]) cubo();
-	translate([12.3 + dCubo,-dCubo,0]) cubo();
-	translate([12.3 + dCubo,12.3 + dCubo,0]) cubo();
-	translate([-dCubo,-dCubo,0])muralla();
+	translate([-dCubo,-dCubo,-2]) cubo();
+	translate([-dCubo,12.3 + dCubo,-2]) cubo();
+	translate([12.3 + dCubo,-dCubo,-2]) cubo();
+	translate([12.3 + dCubo,12.3 + dCubo,-2]) cubo();
+	translate([-dCubo,-dCubo,-2])muralla();
 
 
 }
@@ -119,14 +119,15 @@ module agujerosMuralla(){
 	}
 }
 module tierra(){
-	difference(){
+/*	difference(){
 		translate([12.3,0,-1.5])rotate([0,0,-90])import("castilloNogales.stl");
 	translate([70+15,0,0])cube(size=[140,140,140],center=true);
 	translate([-70-15,0,0])cube(size=[140,140,140],center=true);
 	translate([0,70+15,0])cube(size=[140,140,140],center=true);
 	translate([0,-70-15,0])cube(size=[140,140,140],center=true);
 	}
-	
+	*/
+import("CastillNogales_directo_ext_rev.stl");
 }
 
 module agujeroTH(){
@@ -149,9 +150,9 @@ module base(){
 	}
 }
 
-translate([-12.3/2,-12.3/2,0])castillo();
+rotate([0,0,90])translate([-12.3/2,-12.3/2,-1])castillo();
 //base();
-tierra();
+scale(v = [1/2, 1/2, 1/2])translate([-8,0,0])tierra();
 
 //cubo();
 //muralla();
