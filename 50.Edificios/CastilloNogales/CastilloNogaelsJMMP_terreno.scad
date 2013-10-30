@@ -8,46 +8,54 @@ module torre_homenaje(){
 //
 	
 	difference(){
-		cube(size=[12.3,12.3,22.7]);
+		cube(size=[12.3,12.3,22.7+4]);
 		translate([2/2,2/2,-1])agujeroTH();//cube(size=[12.3-3,12.3-3,22.7-2]);
+		translate([12.3/2-1.5/2,-ancho/2,22.7/3*2])
+			union(){
+				cube(size=[1.5,5,1.5]);
+				translate([1.5/2,5,1.5])rotate([90,0,0])lobulada(radio=1.3/2);
+			}		
 	}
-	translate([0,0,22.7])almenasTH();
+	translate([0,0,22.7+4])almenasTH();
+
+
 }
 
 module cubo(){
 	difference(){
-		cylinder(h = 2+8.30, r = radio, center = false, $fn=20);
+		cylinder(h = 8.30+4, r = radio, center = false, $fn=20);
 		for ( i = [0 : 7] )
 		{
-			rotate([0,0,i*45])translate([0,0,7.8+2])cube(size=[.5,radio*6,1],center=true);
+			rotate([0,0,i*45])translate([0,0,7.8+4])cube(size=[.5,radio*6,1],center=true);
 		}
-		translate([0,0,7.3+2])cylinder(h = 8.30, r = radio/2, center = false, $fn=20);
+		translate([0,0,7.3+4])cylinder(h = 8.30, r = radio/2, center = false, $fn=20);
 	}
+	translate([0,0,-0])cylinder(h = 4, r1= radio + .2, r2 = radio, center = false, $fn=20);
 }
 
 module muralla(){
 	difference(){
-		cube(size=[12.3+dCubo*2,12.3+dCubo*2,6+2]);
+		cube(size=[12.3+dCubo*2,12.3+dCubo*2,6+4]);
 		translate([ancho/2,ancho/2,-50])cube(size=[12.3+dCubo*2-ancho,12.3+dCubo*2-ancho,100]);
-		translate([ancho/2-0.75,ancho/2-0.75,4+2])cube(size=[12.3+dCubo*2-ancho+1.5,12.3+dCubo*2-ancho+1.5,100]);
-		translate([12.3+dCubo*2-ancho-3,-ancho/2,2+2])
+		translate([ancho/2-0.75,ancho/2-0.75,4+4])cube(size=[12.3+dCubo*2-ancho+1.5,12.3+dCubo*2-ancho+1.5,100]);
+		translate([12.3+dCubo*2-ancho-3,-ancho/2,2+4])
 			union(){
 				cube(size=[1.5,5,1.5]);
 				translate([1.5/2,5,1.5])rotate([90,0,0])cylinder(h=5,r=1.5/2,$fn=20);
 			}	
 
-		translate([0,0,2])agujerosMuralla();
+		translate([0,0,4])agujerosMuralla();
 	}
-	translate([12.3+dCubo*2-ancho-3,-4.3,-0.2+2])rotate([25,0,0])cube(size=[1.5,4.8,0.2]);
+	translate([12.3+dCubo*2-ancho-3,-4.3,1.65+4])rotate([2,0,0])cube(size=[1.5,4.8,0.2]);
 }
 
 module castillo(){
-	torre_homenaje();
-	translate([-dCubo,-dCubo,-2]) cubo();
-	translate([-dCubo,12.3 + dCubo,-2]) cubo();
-	translate([12.3 + dCubo,-dCubo,-2]) cubo();
-	translate([12.3 + dCubo,12.3 + dCubo,-2]) cubo();
-	translate([-dCubo,-dCubo,-2])muralla();
+	translate([0,0,-4])torre_homenaje();
+	translate([-dCubo,-dCubo,-4]) cubo();
+	translate([-dCubo,12.3 + dCubo,-4]) cubo();
+	translate([12.3 + dCubo,-dCubo,-4]) cubo();
+	translate([12.3 + dCubo,12.3 + dCubo,-4]) cubo();
+	translate([-dCubo,-dCubo,-4])muralla();
 
 
 }
@@ -118,16 +126,43 @@ module agujerosMuralla(){
     		cube(size=[2,0.5,0.8]);
 	}
 }
-module tierra(){
-/*	difference(){
-		translate([12.3,0,-1.5])rotate([0,0,-90])import("castilloNogales.stl");
-	translate([70+15,0,0])cube(size=[140,140,140],center=true);
-	translate([-70-15,0,0])cube(size=[140,140,140],center=true);
-	translate([0,70+15,0])cube(size=[140,140,140],center=true);
-	translate([0,-70-15,0])cube(size=[140,140,140],center=true);
+
+module lobulada(radio=1.5/2,n=8){
+
+	cylinder(h=5,r=radio,$fn=20);
+	for ( i = [-90 : 180/n:90] )
+	{
+    		translate([ radio*sin(i),radio*cos(i), ])
+    		cylinder(h=5,r=radio*1.5/n,$fn=20);
 	}
-	*/
-import("CastillNogales_directo_ext_rev.stl");
+
+}
+module tierra(){
+	difference(){
+		import("CastillNogales_directo_ext_rev_repaired.stl");
+		/*rotate([0,0,45])translate([70+20,0,0])cube(size=[140,140,140],center=true);
+		rotate([0,0,45])translate([-70-20,0,0])cube(size=[140,140,140],center=true);
+		rotate([0,0,45])translate([0,70+20,0])cube(size=[140,140,140],center=true);
+		rotate([0,0,45])translate([0,-70-20,0])cube(size=[140,140,140],center=true);
+		translate([0,0,-75])cube(size=[140,140,140],center=true);*/
+		difference(){
+			cube(size=[140,140,140],center=true);
+			rotate([0,0,55])translate([-14,-14,0])minkowski(){
+				cube(size=[27,27,10],center=true);
+				translate([14,14,0])cylinder(r=3,h=5,$fn=20);
+
+			}
+
+		}
+		rotate([0,0,55])translate([-9,-9,0])minkowski(){
+			cube(size=[18,18,5],center=true);
+			translate([9,9,0])cylinder(r=5.3,h=5,$fn=20);
+
+		}
+	}
+	rotate([0,0,55])translate([0,0,0])cube(size=[20,20,3.5],center=true);
+	
+//import("CastillNogales_directo_ext_rev_repaired.stl");
 }
 
 module agujeroTH(){
@@ -158,6 +193,8 @@ tierra();
 //cubo();
 //muralla();
 //agujerosMuralla();
+
+
 
 
 
