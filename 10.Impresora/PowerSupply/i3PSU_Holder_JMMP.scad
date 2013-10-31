@@ -3,6 +3,7 @@ include <frame.scad>
 include <powerSocket.scad>
 include <Power_Supply_Cover_12v_with_cord_and_switch_.scad>
 include <xt60_JMMP.scad>
+use <inc/nuts_and_bolts.scad>
 
 
 
@@ -18,24 +19,30 @@ module i3frame() {
 	translate([0,160,-155]) rotate([0,90,0]) cylinder(r=4, h=380, center=true);
 }
 
-PSU_WIDTH = 114;
+PSU_WIDTH = 111;//114;
 PSU_LENGTH = 215;
 PSU_HEIGHT = 50;
-PSU_INSET = 18;
+PSU_INSET = 11;//18;
 PSU_WALL = 2;
 PSU_TERMINAL = 8.3;
 
 module powerSupply() {
 	difference() {
 		cube([PSU_WIDTH, PSU_LENGTH, PSU_HEIGHT], center = true);
-		translate([0,(PSU_LENGTH / 2) - (PSU_INSET / 2),PSU_TERMINAL / 2])
-		cube([PSU_WIDTH - (PSU_WALL * 2),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+		translate([PSU_WALL,(PSU_LENGTH / 2) - (PSU_INSET / 2),PSU_TERMINAL / 2])
+		//cube([PSU_WIDTH - (PSU_WALL * 2),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+		cube([PSU_WIDTH - (PSU_WALL ),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+		translate([PSU_WIDTH/2-PSU_WALL/2,(PSU_LENGTH / 2) - (PSU_INSET / 2),-PSU_TERMINAL / 2])
+		cube([PSU_WALL ,PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+		translate([0,(PSU_LENGTH / 2)-PSU_INSET/2 ,-PSU_HEIGHT / 2+PSU_WALL/2])
+		cube([PSU_WIDTH ,PSU_INSET,PSU_WALL], center = true);
 	}
+	
 }
 
 module powerSwitch() {
-	cube([23,27,5], center=true);		// JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
-	translate([0,0,0]) cube([23,27,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+	cube([23,32.3,5], center=true);		// JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+	translate([0,0,0]) cube([23,32.3,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
 }
 
 PC_DEPTH = 40;
@@ -45,13 +52,17 @@ module powerCover() {
 	difference() {
 		translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,0]) 
 		difference() {
-			cube([PSU_WIDTH, PSU_INSET + PC_DEPTH, PSU_HEIGHT], center=true);
+			cube([PSU_WIDTH, PSU_INSET + PC_DEPTH, PSU_HEIGHT+0], center=true);
 			innerArea();
 			translate([0,-10,0]) innerArea();
 			//translate([0,0,-10]) innerArea(); //jmmpponer tapa
 
-			//screw holes
-			translate([0,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),3]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH*2, center=true);
+			//screw holes			
+			translate([-PSU_WIDTH/2,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(6+2)]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH/2, center=true);
+			translate([-PSU_WIDTH/2,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(16.5+2)]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH/2, center=true);
+			//screw holes			
+			translate([PSU_WIDTH/2-7,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(6+2+40)]) rotate([0,0,0]) cylinder(r=1.5, h=PSU_WIDTH/2, center=true);
+			translate([-PSU_WIDTH/2+6,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(6+2+40)]) rotate([0,0,0]) cylinder(r=1.5, h=PSU_WIDTH/2, center=true);
 
 			//Power Socket Hole
 			translate([0.5*PSU_WIDTH +1.5,10,0]) rotate([0,90,0]) powerSocket();
@@ -72,6 +83,11 @@ module powerCover() {
 	//xt60 mounts
 	translate([-PSU_WIDTH/2 +10,PC_DEPTH/2*6+12.5,PSU_HEIGHT / -2 +16])rotate([-90,0,0])xt60();
 	translate([-PSU_WIDTH/2 +40,PC_DEPTH/2*6+12.5,PSU_HEIGHT / -2 +16])rotate([-90,0,0])xt60();
+	//nut support
+
+	translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,-10]) translate([PSU_WIDTH/2-7,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(3+2+40)])nut();
+	translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,-10]) translate([-PSU_WIDTH/2+6,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(3+2+40)])nut();
+
 }
 
 
@@ -93,6 +109,15 @@ module xt60Hole(){
 	color("red")translate([0,-25,0])cube([25,12.5,12.5]);
 }
 
+module nut(d=3){
+	difference(){
+		translate([0,d,d])cube([d*4,d*5,d*2],center=true);
+		nutHole(d, length = 10);
+		boltHole(d, length = 10);
+		translate([0,d*4,d/2])rotate([-55,0,0])cube([d*4,d*2.5,d*5],center=true);
+	}
+//cube([d*4,d*2.5,d*5],center=true);
+}
 
 
 //color("red")translate([-PSU_WIDTH/2 +10,PC_DEPTH/2*6+15,PSU_HEIGHT / -2 -10])rotate([-90,0,0])xt60();
@@ -121,7 +146,9 @@ difference() {
 
 
 
-translate([0,0,148])rotate([-90,0,0])powerCover();
+//translate([0,0,148])rotate([-90,0,0])
+powerCover();
+//color("GhostWhite")powerSupply();
 //bracket();
 /*color("GhostWhite") i3frame();
 translate([i3_SUPPORT_SPACE + i3_FRAME_THICKNESS + (PSU_HEIGHT /  2),PSU_WIDTH / 2,0]) rotate([90,180,90]) {
@@ -129,8 +156,7 @@ translate([i3_SUPPORT_SPACE + i3_FRAME_THICKNESS + (PSU_HEIGHT /  2),PSU_WIDTH /
 	powerCover();
 }*/
 		
-
-		
+//nut();
 
 
 //translate([60,0,0]) rotate([0,90,90])color("red")PSC12V();
