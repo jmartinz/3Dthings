@@ -26,11 +26,15 @@ PSU_WALL = 2;
 PSU_TERMINAL = 8.3;
 
 module powerSupply() {
-        difference() {
-                cube([PSU_WIDTH, PSU_LENGTH, PSU_HEIGHT], center = true);
-                translate([0,(PSU_LENGTH / 2) - (PSU_INSET / 2),PSU_TERMINAL / 2])
-                cube([PSU_WIDTH - (PSU_WALL * 2),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
-        }
+	difference() {
+		cube([PSU_WIDTH, PSU_LENGTH, PSU_HEIGHT], center = true);
+		translate([PSU_WALL,(PSU_LENGTH / 2) - (PSU_INSET / 2),PSU_TERMINAL / 2])
+		//cube([PSU_WIDTH - (PSU_WALL * 2),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+		cube([PSU_WIDTH - (PSU_WALL ),PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+	translate([PSU_WIDTH/2-PSU_WALL/2,(PSU_LENGTH / 2) - (PSU_INSET / 2),-PSU_TERMINAL / 2])
+		cube([PSU_WALL ,PSU_INSET,PSU_HEIGHT - PSU_TERMINAL], center = true);
+	}
+
 }
 
 module powerSwitch() {
@@ -43,9 +47,9 @@ PC_THICKNESS = 3;
 
 module powerCover() {
         difference() {
-                translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,0]) 
+                translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,-2]) 
                 difference() {
-                        cube([PSU_WIDTH, PSU_INSET + PC_DEPTH, PSU_HEIGHT], center=true);
+                        cube([PSU_WIDTH, PSU_INSET + PC_DEPTH, PSU_HEIGHT+2], center=true);
                         innerArea();
                         translate([0,-10,0]) innerArea();
                         //translate([0,0,-10]) innerArea(); //jmmpponer tapa
