@@ -146,7 +146,7 @@ difference() {
 
 
 
-//translate([0,0,148])rotate([-90,0,0])
+translate([0,0,148])rotate([-90,0,0])
 powerCover();
 //color("GhostWhite")powerSupply();
 //bracket();

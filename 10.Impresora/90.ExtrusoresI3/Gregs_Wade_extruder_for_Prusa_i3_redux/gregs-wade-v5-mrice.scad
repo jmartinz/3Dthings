@@ -350,13 +350,13 @@ echo("bhmh", mounting_holes)
 
 	//carriage mountig holes
 	translate([-48.5+64+4,1,3]) {
-		translate([-24,0,0]) { //-46
+		translate([-24.5,0,0]) { //-46  //JMMP para 30mm de .24 a 24.5
 			translate([0,0,layer_thickness+24]) 
 			  cylinder(r=m3_diameter/2, h=wade_block_depth+0.2+base_extra_depth, center=true,$fn=20);
 			cylinder(r=m3_nut_diameter/2+0.5, h=20, center=true,$fn=20);
 		}
 		
-		translate([0,0,0]) { //-22
+		translate([5.5,0,0]) { //-22 //JMMP para 30mm de 0 a 5.5
 			translate([0,0,layer_thickness+24]) 
 			  cylinder(r=m3_diameter/2, h=wade_block_depth+0.2+base_extra_depth, center=true,$fn=20);
 			cylinder(r=m3_nut_diameter/2+0.5, h=20, center=true,$fn=20);
