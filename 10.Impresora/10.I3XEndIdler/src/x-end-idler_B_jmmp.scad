@@ -28,8 +28,8 @@ $fn=6;
 
 module X_end_I_B_holes(){
 	wall= 1.2;
-	clearence= 1; //0.1; 
-	cylinder(r=6.5+wall+clearence+2*wall, h=9+2, $fn=50,center=true);
+	clearence= 2; //0.1; 
+	cylinder(r=6.5+wall+clearence+2*wall, h=9+3, $fn=50,center=true);
 	cylinder(h = 80, r=2.2, $fn=30,center=true);
 
 }
