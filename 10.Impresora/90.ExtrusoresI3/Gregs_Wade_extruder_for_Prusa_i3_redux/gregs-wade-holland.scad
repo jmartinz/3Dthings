@@ -383,7 +383,7 @@ echo("bhmh", mounting_holes)
 	}
 
 	//carriage mountig holes
-	translate([-48.5+64+4,1,3]) {
+	translate([-48.5+64+4,0,3]) {
 		translate([-25,0,0]) { //-46 jmmp
 			translate([0,0,layer_thickness+24]) 
 			  cylinder(r=m3_diameter/2, h=wade_block_depth+0.2+base_extra_depth, center=true,$fn=20);
