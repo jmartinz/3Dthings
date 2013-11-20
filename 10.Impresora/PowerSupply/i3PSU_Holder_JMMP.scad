@@ -40,8 +40,8 @@ module powerSupply() {
 }
 
 module powerSwitch() {
-	cube([23,32.3,5], center=true);		// JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
-	translate([0,0,0]) cube([23,32.3,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+	cube([23,32.3,7], center=true);		// JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+	translate([0,0,-8]) cube([23,30,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
 }
 
 PC_DEPTH = 40;
@@ -88,6 +88,10 @@ module powerCover() {
 	//nut support
 	translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,-10]) translate([PSU_WIDTH/2-7,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(3+2+40)])nut();
 	translate([0,(PSU_LENGTH / 2) + (PC_DEPTH  - PSU_INSET) / 2,-10]) translate([-PSU_WIDTH/2+6,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),PSU_HEIGHT/2-(3+2+40)])nut();
+
+	//"support" corner
+	color("green")translate([PSU_WIDTH/2 +2, PC_DEPTH*3-20, PSU_HEIGHT / 2 -6]) cube([i3_FRAME_THICKNESS-2,PC_DEPTH,20], center=true);
+	color("blue")translate([PSU_WIDTH/2 -6, PC_DEPTH*3-20, PSU_HEIGHT / 2+2]) cube([20,PC_DEPTH,i3_FRAME_THICKNESS-2], center=true);
 
 }
 
