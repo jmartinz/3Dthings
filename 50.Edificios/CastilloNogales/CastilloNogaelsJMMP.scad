@@ -159,7 +159,7 @@ module tierra(){
 			translate([9,9,0])cylinder(r=5.3,h=5,$fn=20);
 
 		}
-		rotate([0,0,55])cube(size=[11,11,60],center=true);
+		rotate([0,0,55])cube(size=[10,10,60],center=true);
 	}
 	rotate([0,0,55])difference(){
 		cube(size=[20,20,3.5],center=true);
