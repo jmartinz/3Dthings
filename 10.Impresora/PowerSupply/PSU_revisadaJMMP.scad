@@ -21,7 +21,7 @@ module i3frame() {
 PSU_WIDTH = 114;
 PSU_LENGTH = 215;
 PSU_HEIGHT = 50;
-PSU_INSET = 18;
+PSU_INSET = 11.5;
 PSU_WALL = 2;
 PSU_TERMINAL = 8.3;
 
@@ -38,8 +38,8 @@ module powerSupply() {
 }
 
 module powerSwitch() {
-        cube([23,27,5], center=true);                // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
-        translate([0,0,0]) cube([23,27,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+        cube([23,31,5], center=true);                // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
+        translate([0,0,0]) cube([23,31,15], center=true); // JMMP MEDIDAS AGUJERO INTERRUPTOR COMPRADO
 }
 
 PC_DEPTH = 40;
@@ -55,7 +55,8 @@ module powerCover() {
                         //translate([0,0,-10]) innerArea(); //jmmpponer tapa
 
                         //screw holes
-                        translate([0,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 6.5),3]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH*2, center=true);
+                        translate([-PSU_WIDTH/2,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 5.5),(PSU_HEIGHT/2-5)]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH, center=true);
+                        translate([-PSU_WIDTH/2,(PSU_INSET + PC_DEPTH)/-2 + (PSU_INSET - 5.5),(PSU_HEIGHT/2-15)]) rotate([0,90,0]) cylinder(r=1.5, h=PSU_WIDTH, center=true);
 
                         //Power Socket Hole
                         translate([0.5*PSU_WIDTH +1.5,10,0]) rotate([0,90,0]) powerSocket();
