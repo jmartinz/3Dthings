@@ -56,7 +56,7 @@ module torso(){
 
 	difference(){
 	cylinder(r=10/2, h=5, $fn=64);
-	cylinder(r=6/2, h=12, $fn=64);
+	translate([0,0,-5])cylinder(r=5.8/2, h=12, $fn=64);
 	translate([-20,0,2.5]) rotate([0,90,0]) cylinder(r=1/2, h=120, $fn=64); //agujero para los brazos
 	}
 
@@ -64,7 +64,7 @@ module torso(){
 	translate([-5,3,0])
 	difference(){
 	scale ([10,5.5,5]) cube(1);
-	translate([0,3.3,2.5]) rotate([0,90,0]) cylinder(r=3/2, h=12, $fn=64);
+	translate([-5,3.3,2.5]) rotate([0,90,0]) cylinder(r=3/2, h=20, $fn=64);
 }
 }
 
