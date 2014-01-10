@@ -14,24 +14,14 @@ goldenratio = 1.61803399;
 //build_pentagon();
 
 
-// Torso
-cylinder(r=6/2, h=12, $fn=64);
-
+// Cuerpo
+difference(){
+	cylinder(r=6/2, h=12, $fn=64);
+	translate([-20,0,5.5]) rotate([0,90,0]) cylinder(r=1/2, h=120, $fn=64); //agujero para los brazos
+}
 translate([0,0,-5])
 cylinder(r1=0.5/2, r2=6/2,h=5, $fn=64);
 
-translate([0,0,3])
-difference(){
-cylinder(r=10/2, h=5, $fn=64);
-translate([-20,0,2.5]) rotate([0,90,0]) cylinder(r=2/3, h=120, $fn=64); //agujero para los brazos
-}
-
-// Mochila portaresistencia
-translate([-5,3,3])
-difference(){
-scale ([10,5.5,5]) cube(1);
-translate([0,3.3,2.5]) rotate([0,90,0]) cylinder(r=3/2, h=12, $fn=64);
-}
 //Cuello
 translate([0,0,11.5])rotate([0,-7,0])
 cylinder(r=9/2, h=2, $fn=64);
@@ -53,9 +43,25 @@ translate([12,0,18.5])
 linear_extrude(height = 5, center = true, convexity = 10, twist = 180, $fn = 100)
 translate([1, 0, 0])
 circle(r =0.5);
+module torso(){
 
+	difference(){
+	cylinder(r=10/2, h=5, $fn=64);
+	cylinder(r=6/2, h=12, $fn=64);
+	translate([-20,0,2.5]) rotate([0,90,0]) cylinder(r=1/2, h=120, $fn=64); //agujero para los brazos
+	}
+
+	// Mochila portaresistencia
+	translate([-5,3,0])
+	difference(){
+	scale ([10,5.5,5]) cube(1);
+	translate([0,3.3,2.5]) rotate([0,90,0]) cylinder(r=3/2, h=12, $fn=64);
+}
+}
 // Ojos
 translate([4,-5.5,17])
 sphere(1, $fa=5, $fs=0.1); 
 translate([-4,-5.5,17])
 sphere(1, $fa=5, $fs=0.1); 
+
+translate([10,0,0]) torso();
