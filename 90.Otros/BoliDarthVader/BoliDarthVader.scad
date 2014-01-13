@@ -1,13 +1,15 @@
 
-
+ 
 difference(){
 	union(){
- 		scale([0.4,0.4,0.4])import("DarthTuri.STL");
- 		//translate([-5,-7,0])cube(10);
+ 		scale([0.5,0.5,0.5])import("DarthTuri_rep.stl");
+ 		translate([-5,-7,1.2])cube(12);
 	}
-	//
+	translate([0.5,-1,0])cylinder( h =33,r=8.2/2, center=true);
 }
-cylinder( h =20,r=8.2/2, center=true);
+
+
+/*
 //-------- USER PARAMETERS -----------------------------
 //-- Change these parameters for configuring your
 //-- own marble organizer
@@ -48,3 +50,4 @@ h_box = md / 2 + bottom_h;
     for (iy = [0:N-1]) 
       translate([ix, iy, 0] * dc)
 	sphere(r = md/2, $fn=20);
+*/
