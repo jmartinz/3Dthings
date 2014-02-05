@@ -90,7 +90,7 @@ difference(){
 }
 }
 
-module agarraderas( altura_asa=40, diam_ext=78, diam_int = 63.3, altura_ag=14, ancho_ag=2, diam_tubo = 60){
+module agarraderas( altura_asa=40, diam_ext=73, diam_int = 63.3, altura_ag=14, ancho_ag=2, diam_tubo = 60){
 separacion=(altura_asa-altura_ag*2)/3;
 translate([0,0,separacion*2])
 agarradera(diam_ext, diam_int , altura_ag, ancho_ag, diam_tubo );
