@@ -3,7 +3,7 @@
 difference(){
 	union(){
  		scale([0.5,0.5,0.5])import("DarthTuri_rep.stl");
- 		translate([-5,-7,1.2])cube(12);
+ 		translate([-5,-7,1.3])cube(12);
 	}
 	translate([0.5,-1,0])cylinder( h =33,r=8.2/2, center=true);
 }
