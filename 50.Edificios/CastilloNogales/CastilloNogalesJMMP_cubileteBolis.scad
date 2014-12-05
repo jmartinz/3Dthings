@@ -46,7 +46,7 @@ module muralla(){
 
 		translate([0,0,4])agujerosMuralla();
 	}
-	translate([12.3+dCubo*2-ancho-3,-4.3,1.65+4])rotate([2,0,0])cube(size=[1.5,4.8,0.2]);
+	//translate([12.3+dCubo*2-ancho-3,-4.3,1.65+4])rotate([2,0,0])cube(size=[1.5,4.8,0.2]);
 }
 
 module castillo(){
@@ -184,15 +184,22 @@ module base(){
 	}
 }
 
-
-rotate([0,0,55])translate([-12.3/2,-12.3/2,0])castillo();
-tierra();
-
-
-
-
+//rotate([0,0,-55])
+/*union(){
+translate([-12.3/2,-12.3/2,0])castillo();
+rotate([0,0,-55])tierra();
+}*/
 
 
+
+translate([-12.3/2,-12.3/2,0])
+	castillo();
+translate([-26/2,-26/2,-4])
+	minkowski(){
+				cube(size=[21,21,1],center=true);
+				translate([13,13,0])cylinder(r=3,h=1,$fn=20);
+
+			}
 
 
 

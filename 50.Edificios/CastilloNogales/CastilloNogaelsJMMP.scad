@@ -190,8 +190,8 @@ module base(){
 }
 
 
-rotate([0,0,55])translate([-12.3/2,-12.3/2,0])castillo();
-tierra();
+translate([-12.3/2,-12.3/2,0])castillo();
+rotate([0,0,-55])tierra();
 
 
 
