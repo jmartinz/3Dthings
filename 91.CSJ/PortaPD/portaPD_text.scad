@@ -38,4 +38,6 @@ module portaPD(nAg,txtFront, textBack){
 }
 
 
-portaPD(5,"C. San Jose","Teresa");
+portaPD(4,"C. San Jose","Mar");
+
+translate([0, 40, 0])portaPD(4,"C. San Jose","Teresa");
