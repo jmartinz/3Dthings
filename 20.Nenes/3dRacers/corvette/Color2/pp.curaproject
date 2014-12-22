@@ -1,0 +1,91 @@
+[model_0]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\E_5 Flash.stl
+centerx = 128.997999191
+centery = 36.9974975586
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_1]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\A_9 Bumper 1.stl
+centerx = 126.25
+centery = 83.5354981422
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_2]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\G_9 Bumper 1.stl
+centerx = 126.448001862
+centery = 118.186998367
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_3]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\B_2 Bones.stl
+centerx = 136.827501297
+centery = 154.089000702
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_4]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\D_6 Blade.stl
+centerx = 77.9140014648
+centery = 33.7634925842
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_5]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\C_4 Skull.stl
+centerx = 77.630279541
+centery = 78.8064308167
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
+[model_6]
+filename = C:\UnidadU\Personal\3D\Objetos\20.Nenes\3dRacers\corvette\Color2\H_6 Wing.stl
+centerx = 58.2224998474
+centery = 115.223654747
+scale = 1.0
+rotate = 0.0
+flipx = False
+flipy = False
+flipz = False
+swapxz = False
+swapyz = False
+extruder = 1
+
