@@ -154,9 +154,9 @@ module tierra(){
 			}
 
 		}
-		rotate([0,0,55])translate([-9,-9,0])minkowski(){
-			cube(size=[18,18,5],center=true);
-			translate([9,9,0])cylinder(r=5.3,h=5,$fn=20);
+		rotate([0,0,55])translate([-9,-21,0])minkowski(){
+			cube(size=[20,2,5],center=true);
+			translate([9,9,0])cylinder(r=2,h=5,$fn=20);
 
 		}
 		rotate([0,0,55])cube(size=[10,10,60],center=true);
