@@ -1,24 +1,24 @@
-//Porta pendrives paramétrico con textos
+//Porta pendrives paramï¿½trico con textos
 use <WriteSVG.scad>
 
 
 
-//Modulo para agujero. Las medidas de un conector USB son 11x4.7x13. Se hacen un poco más grande el agujero
+//Modulo para agujero. Las medidas de un conector USB son 11x4.7x13. Se hacen un poco mï¿½s grande el agujero
 module agujero(){
 
-cube(size=[5,12,12]);
+cube(size=[6,13,12]);
 }
 
-// Modulo para generar el porta Pendrives con el nº de agujeros como parámetro de entrada
+// Modulo para generar el porta Pendrives con el nï¿½ de agujeros como parï¿½metro de entrada
 module portaPD(nAg,txtFront, textBack){
 	// Se calcula la longitud del cuerpo principal
-	// separacion del primer agujero + nºagujerosxancho agujeros+ nº agujeros menso uno por la separación entre agujeros + separación del último agujero
-	longX = 5+5*nAg+10*(nAg-1)+5;
+	// separacion del primer agujero + nï¿½agujerosxancho agujeros+ nï¿½ agujeros menso uno por la separaciï¿½n entre agujeros + separaciï¿½n del ï¿½ltimo agujero
+	longX = 5+6*nAg+10*(nAg-1)+5;
 
 	union(){
 		difference(){
 			// Cuerpo principal
-			cube(size=[longX,22,12]);
+			cube(size=[longX,23,12]);
 			
 			//Agujeros	
 			for ( i = [0:nAg-1 ] )
@@ -26,13 +26,13 @@ module portaPD(nAg,txtFront, textBack){
 				translate([5+i*15,5,1.5])agujero(); 
 			}
 			
-			//Año 
+			//Aï¿½o 
 			translate([1,21/2,10/2])rotate([0,0,-90])writecube("2014",[0,0,0],[0,0,0]);			
 		}
 		//Texto alante
 		writecube(txtFront,[longX/2,0,12/2],[longX,0,10]);
-		//Texto atrás
-		translate([longX/2,22,12/2])rotate([0,0,180])writecube(textBack,[0,0,0],[0,0,0]);
+		//Texto atrï¿½s
+		translate([longX/2,23,12/2])rotate([0,0,180])writecube(textBack,[0,0,0],[0,0,0]);
 		
 	}
 }
