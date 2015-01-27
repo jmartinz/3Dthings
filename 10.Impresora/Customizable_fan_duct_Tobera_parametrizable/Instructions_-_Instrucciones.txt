@@ -1,0 +1,34 @@
+/************************************************************/
+/*	DESCRIPTION:	Instructions							*/
+/*	DESCRIPCION: 	Instrucciones							*/
+/*															*/
+/*	AUTOR:			Dracnas									*/
+/*	CONTACTO:		dracnas2014@gmail.com					*/
+/*	FECHA:			01/09/2014								*/
+/*	LICENCIA:		GNU GPL V3								*/
+/************************************************************/
+
+/************************************************************/
+/*															*/
+/*	INSTRUCTIONS											*/
+/*															*/
+/*	Change parameters as neded in "configuracion.scad" file.*/
+/*	You can see help images in help folder.					*/
+/*	Save and close this file.								*/
+/*	Open file "Fan duct - Tobera.scad" and compile.			*/
+/*	Be Patient.												*/
+/*															*/
+/************************************************************/
+
+/************************************************************/
+/*															*/
+/*	INSTRUCCIONES											*/
+/*															*/
+/*	Cambiar los parametros necesarios en el archivo			*/
+/*	"Configuracion.scad"									*/
+/*	La ayuda se encuentra en la carpeta ayuda.				*/
+/*	Guardar y cerrar el archivo.							*/
+/*	Abrir el archivo "Fan duct - Tobera.scad" y compilar.	*/
+/* 	Paciencia, tarda un poco.								*/
+/*															*/
+/************************************************************/
