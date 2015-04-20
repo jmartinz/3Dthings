@@ -13,4 +13,5 @@ module iman(texto = nombre ,fuente = "Ubuntu",tam = 15){
     
 }
 
+//iman(texto = "Fausti" ,fuente = "Century Schoolbook L",tam = 27);
 iman();
